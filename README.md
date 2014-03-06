@@ -33,6 +33,10 @@ A full sample program to generate an auth token looks like this:
 
 require 'Auth.php';
 
+$username = 'your_username_goes_here';
+$password = 'your_password_goes_here';
+$system_realm = 'your_account_name_goes_here.canopyvoice.com';
+
 $my_auth_token = new Auth;
 $my_auth_token->get_auth_token_by_hash($system_realm,$username,$password);
 $auth_token = $my_auth_token->request_result->auth_token;
