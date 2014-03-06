@@ -60,7 +60,8 @@ $auth_token = $my_auth_token->request_result->auth_token;
 
 ### Account.php Class:
 
-A sample program to "GET" an account's data (assumes you've already populated ```$auth_token``` with an authentication token!):
+A sample program to "GET" an account's data (assumes you've already populated ```$auth_token``` with an authentication token and
+```$system_realm``` with your SIP realm name!):
 
 ```php
 <?php
