@@ -1,6 +1,6 @@
 <?php
 
-class GenerateAuthToken {
+class Auth {
     
     var $request_result;
     
