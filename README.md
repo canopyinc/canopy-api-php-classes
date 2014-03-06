@@ -1,7 +1,7 @@
 canopy-api-php-classes
 ======================
 
-A full set of simple PHP classes for interacting with Canopy's API. For more info, see the [full API reference docs at 
+A full set of simple PHP classes for interacting with Canopy's REST API. For more info, see the [full API reference docs at 
 Canopy](http://canopyvoice.com/docs/api.php).
 
 ## USAGE
@@ -32,7 +32,7 @@ If the request was successful, the "request_result" property returned by the obj
 {
     "auth_token":"093820cs88509389048320df89234038",
     "status":"success",
-    "data":{"account_id":"032qfd09re90584905030s3249028099"}
+    "data":{"account_id":"510900d5c3b578b585a2ec47100f7665"}
 }
 ```
 
@@ -59,3 +59,25 @@ $auth_token = $my_auth_token->request_result->auth_token;
 ```
 
 ### Account.php Class:
+
+A sample program to "GET" an account's data (assumes you've already populated ```$auth_token``` with an authentication token!):
+
+```php
+<?php
+
+require 'Auth.php';
+require 'Account.php';
+
+$account_id = '510900d5c3b578b585a2ec47100f7665'; //the account_id of the account you wish to retrieve
+$my_account_details = new Account;
+$my_account_details->get($system_realm,$account_id,$auth_token);
+
+$account_details = $my_account_details->request_result; //retrieve the whole request result
+$account_details = $my_account_details->request_result->data->name; //or retrieve the account name, etc.
+
+?>
+```
+
+Please note that only those with reseller accounts will be able to "PUT" (create) or "DELETE" accounts. Normal accounts can only
+get their account's data or update (POST) their account's data. If you are interested in having a reseller account, call us 
+at (303) 653-9473 or send an email to sales@canopyvoice.com
