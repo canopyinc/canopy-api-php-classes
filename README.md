@@ -8,15 +8,14 @@ Canopy](http://canopyvoice.com/docs/api.php).
 
 ### Auth.php Class:
 
-Pass the following three variables as arguments to the get_auth_token_by_hash() method: 
+To generate the auth token, simply create a new instance of the "Auth" class, passing the following three variables as arguments 
+to the get_auth_token_by_hash() method: 
 
 ```php
 $username = 'your_username_goes_here';
 $password = 'your_password_goes_here';
 $system_realm = 'your_account_name_goes_here.canopyvoice.com';
 ```
-
-To generate the auth token, simply create a new instance of the "Auth" class, passing in the arguments from above.
 
 ```php
 /* Generating a new auth token */
