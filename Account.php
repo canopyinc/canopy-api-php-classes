@@ -58,7 +58,24 @@ class Account {
         
     }
 
-    //TODO: function update_account
+    
+    function update($system_realm,$account_id,$data,$auth_token) {    
+                                                                                 
+    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $account_id);                                                                      
+          curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                    
+          curl_setopt($ch, CURLOPT_POSTFIELDS, $data);                                                                 
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                     
+          curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
+          'X-Auth-Token: '.$auth_token,
+          'Content-Length: '.strlen($data),                                                              
+          'Content-Type: application/json'                                                                   
+          ));                                                                                                                  
+
+    $result = curl_exec($ch);
+    $result_json_decoded = json_decode($result);
+  
+    return $this->request_result = $result_json_decoded;
+    }
     
 }
 
