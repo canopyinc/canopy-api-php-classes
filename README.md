@@ -82,3 +82,36 @@ $account_details = $my_account_details->request_result->data->name; //or retriev
 Please note that only those with reseller accounts will be able to "PUT" (create) or "DELETE" accounts. Normal accounts can only
 get their account's data or update (POST) their account's data. If you are interested in having a reseller account, call us 
 at (303) 653-9473 or send an email to sales@canopyvoice.com
+
+If you are making a new account (or updating an existing one) you'll have to pass a ```$data``` argument to the method. This 
+provides the data that will be used to create or update the new account. An example ```$data``` payload can be found below (for a
+full list of parameters, see the [ API reference docs at Canopy](http://canopyvoice.com/docs/api.php)):
+
+```php
+<?php
+
+data = '{
+        "data": { 
+            "caller_id": { 
+                "external": { 
+                    "name": "Canopy",
+                    "number": "+13036539473"
+                },
+                "internal": { 
+                    "name": "Canopy",
+                    "number": "+13036539473"
+               }
+            },
+            "name": "newaccountname_goes_here",
+            "realm": "newaccountname_goes_here.canopyvoice.com",
+            "available_apps" : [
+                "userportal", 
+                "voip",
+                "developer",
+                "numbers"
+             ]
+        }
+}';
+
+?>
+```
