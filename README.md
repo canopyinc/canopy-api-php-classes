@@ -115,3 +115,11 @@ data = '{
 
 ?>
 ```
+
+### Device.php Class:
+
+under construction...
+
+### User.php Class:
+
+under construction...

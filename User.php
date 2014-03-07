@@ -71,8 +71,7 @@ class User {
     $result = curl_exec($ch);
     $result_json_decoded = json_decode($result);
     
-    return $this->request_result = $result_json_decoded;
-        
+    return $this->request_result = $result_json_decoded;        
     }
 
     

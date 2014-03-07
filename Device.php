@@ -1,13 +1,13 @@
 <?php
 
-class Account {
+class Device {
     
     var $request_result;
     
     
-    function put($system_realm,$parent_account_id,$data,$auth_token) {    
+    function put($system_realm,$account_id,$data,$auth_token) {    
                                                                                  
-    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $parent_account_id);                                                                      
+    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $account_id . '/devices');                                                                      
           curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");                                                                    
           curl_setopt($ch, CURLOPT_POSTFIELDS, $data);                                                                 
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                     
@@ -24,9 +24,26 @@ class Account {
     }
 
 
-    function get($system_realm,$account_id,$auth_token) {
+    function get_all($system_realm,$account_id,$auth_token) {
                                                                            
-    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $account_id);                                                                    
+    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $account_id . '/devices');                                                                    
+          curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");                                                                                                                                   
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                     
+          curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
+          'X-Auth-Token: '.$auth_token,                                                             
+          'Content-Type: application/json'                                                                   
+          ));                                                                                                                  
+
+    $result = curl_exec($ch);
+    $result_json_decoded = json_decode($result);
+    
+    return $this->request_result = $result_json_decoded;
+    }
+
+    
+    function get($system_realm,$account_id,$device_id,$auth_token) {
+                                                                           
+    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $account_id . '/devices' . $device_id);                                                                    
           curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");                                                                                                                                   
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                     
           curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
@@ -41,9 +58,9 @@ class Account {
     }
 
 
-    function delete($system_realm,$account_id_to_remove,$auth_token) {
+    function delete($system_realm,$account_id,$device_id_to_remove,$auth_token) {
         
-    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $account_id_to_remove);                                                                    
+    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $account_id . '/devices' . $device_id_to_remove);                                                                    
           curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");                                                                                                                                   
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                     
           curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
@@ -58,9 +75,9 @@ class Account {
     }
 
     
-    function update($system_realm,$account_id,$data,$auth_token) {    
+    function update($system_realm,$account_id,$device_id,$data,$auth_token) {    
                                                                                  
-    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $account_id);                                                                      
+    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $account_id . '/devices' . $device_id);                                                                      
           curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                    
           curl_setopt($ch, CURLOPT_POSTFIELDS, $data);                                                                 
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                     
@@ -75,6 +92,24 @@ class Account {
   
     return $this->request_result = $result_json_decoded;
     }
+
+    
+    function status($system_realm,$account_id,$auth_token) {
+                                                                           
+    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $account_id . '/devices/status');                                                                    
+          curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");                                                                                                                                   
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                     
+          curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
+          'X-Auth-Token: '.$auth_token,                                                             
+          'Content-Type: application/json'                                                                   
+          ));                                                                                                                  
+
+    $result = curl_exec($ch);
+    $result_json_decoded = json_decode($result);
+    
+    return $this->request_result = $result_json_decoded;
+    }
+    
     
 }
 
