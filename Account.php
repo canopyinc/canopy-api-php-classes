@@ -41,9 +41,9 @@ class Account {
     }
 
 
-    function delete($system_realm,$account_id_to_remove,$auth_token) {
+    function delete($system_realm,$account_id,$auth_token) {
         
-    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $account_id_to_remove);                                                                    
+    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $account_id);                                                                    
           curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");                                                                                                                                   
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                     
           curl_setopt($ch, CURLOPT_HTTPHEADER, array(  

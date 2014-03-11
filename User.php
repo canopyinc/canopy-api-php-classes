@@ -43,7 +43,7 @@ class User {
     
     function get($system_realm,$account_id,$user_id,$auth_token) {
                                                                            
-    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $account_id . '/users' . $user_id);                                                                    
+    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $account_id . '/users/' . $user_id);                                                                    
           curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");                                                                                                                                   
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                     
           curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
@@ -58,9 +58,9 @@ class User {
     }
 
 
-    function delete($system_realm,$account_id,$user_id_to_remove,$auth_token) {
+    function delete($system_realm,$account_id,$user_id,$auth_token) {
         
-    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $account_id . '/users' . $user_id_to_remove);                                                                    
+    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $account_id . '/users/' . $user_id);                                                                    
           curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");                                                                                                                                   
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                     
           curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
@@ -77,7 +77,7 @@ class User {
     
     function update($system_realm,$account_id,$user_id,$data,$auth_token) {    
                                                                                  
-    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $account_id . '/users' . $user_id);                                                                      
+    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $account_id . '/users/' . $user_id);                                                                      
           curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                    
           curl_setopt($ch, CURLOPT_POSTFIELDS, $data);                                                                 
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                     

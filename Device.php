@@ -43,7 +43,7 @@ class Device {
     
     function get($system_realm,$account_id,$device_id,$auth_token) {
                                                                            
-    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $account_id . '/devices' . $device_id);                                                                    
+    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $account_id . '/devices/' . $device_id);                                                                    
           curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");                                                                                                                                   
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                     
           curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
@@ -58,9 +58,9 @@ class Device {
     }
 
 
-    function delete($system_realm,$account_id,$device_id_to_remove,$auth_token) {
+    function delete($system_realm,$account_id,$device_id,$auth_token) {
         
-    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $account_id . '/devices' . $device_id_to_remove);                                                                    
+    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $account_id . '/devices/' . $device_id);                                                                    
           curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");                                                                                                                                   
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                     
           curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
@@ -77,7 +77,7 @@ class Device {
     
     function update($system_realm,$account_id,$device_id,$data,$auth_token) {    
                                                                                  
-    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $account_id . '/devices' . $device_id);                                                                      
+    $ch = curl_init('http://' . $system_realm . ':8000/v2/accounts/' . $account_id . '/devices/' . $device_id);                                                                      
           curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                    
           curl_setopt($ch, CURLOPT_POSTFIELDS, $data);                                                                 
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                     
