@@ -116,10 +116,4 @@ data = '{
 ?>
 ```
 
-### Device.php Class:
-
-under construction...
-
-### User.php Class:
-
-under construction...
+This is just a basic introduction to using these classes with Canopy's API. To read the full API reference documentation, [go here](http://canopyvoice.com/docs/api.php).
