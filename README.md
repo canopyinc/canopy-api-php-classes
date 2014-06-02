@@ -38,8 +38,7 @@ If the request was successful, the "request_result" property returned by the obj
 
 The entire request result is returned, allowing you to easily retrieve any object from within the
 response, such as the "auth_token" or the "account_id" (to get the account_id, use request_result->data->account_id). For more 
-information about the error and status codes, visit the [full API reference docs at Canopy](http://canopyvoice.com/docs/api.php).
-
+information about the error and status codes, visit the [full API reference docs at Canopy](http://canopyvoice.com/resources/api/
 A full sample program to generate an auth token looks like this:
 
 ```php
@@ -85,7 +84,7 @@ at (303) 653-9473 or send an email to sales@canopyvoice.com
 
 If you are making a new account (or updating an existing one) you'll have to pass a ```$data``` argument to the method. This 
 provides the data that will be used to create or update the new account. An example ```$data``` payload can be found below (for a
-full list of parameters, see the [ API reference docs at Canopy](http://canopyvoice.com/docs/api.php)):
+full list of parameters, see the [ API reference docs at Canopy](http://canopyvoice.com/resources/api/)):
 
 ```php
 <?php
@@ -116,4 +115,4 @@ data = '{
 ?>
 ```
 
-This is just a basic introduction to using these classes with Canopy's API. To read the full API reference documentation, [go here](http://canopyvoice.com/docs/api.php).
+This is just a basic introduction to using these classes with Canopy's API. To read the full API reference documentation, [go here](http://canopyvoice.com/resources/api/).
