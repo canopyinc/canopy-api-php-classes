@@ -2,7 +2,7 @@ canopy-api-php-classes
 ======================
 
 A full set of simple PHP classes for interacting with Canopy's REST API. For more info, see the [full API reference docs at 
-Canopy](http://canopyvoice.com/docs/api.php).
+Canopy](http://canopyvoice.com/resources/api/).
 
 ## USAGE
 
